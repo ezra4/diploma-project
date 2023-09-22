@@ -1,3 +1,16 @@
+# Folders to ignore #
+#####################
+AN4/Sem1/SRF/Lab1/OpenCVApplication-VS2015_31_basic/x64/Debug/
+AN4/Sem1/SRF/Lab1/OpenCVApplication-VS2015_31_basic/Images/
+Misc/
+AN4/Licenta/NS3/ns-allinone-3.37/ns-3.37/build/
+AN4/Licenta/NS3/ns-allinone-3.37/ns-3.37/cmake-build-debug/
+AN4/Licenta/NS3/ns-allinone-3.37/ns-3.37/cmake-build-release/
+*/node_modules/
+
+*/.lock-ns3_linux_build
+*/.lock-ns3_win32_build
+
 # Compiled class file
 *.class
 
