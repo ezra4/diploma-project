@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox fx:id="rootBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utcn.licenta.simulator.controllers.MainController">
+   <children>
+      <VBox fx:id="panelPrincipal" prefHeight="450.0" prefWidth="450.0">
+         <children>
+            <VBox fx:id="devices" prefHeight="300.0" prefWidth="450.0">
+               <children>
+                  <Pane prefHeight="10.0" prefWidth="450.0" />
+                  <HBox prefHeight="20.0" prefWidth="450.0">
+                     <children>
+                        <Pane prefHeight="20.0" prefWidth="15.0" />
+                        <Label prefHeight="18.0" prefWidth="227.0" text="Wi-Fi Positioning Algorithms Simulator" underline="true">
+                           <font>
+                              <Font name="Comic Sans MS" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="10.0" prefWidth="450.0" />
+                  <Separator prefWidth="200.0" />
+                  <Pane layoutX="15.0" layoutY="81.0" prefHeight="15.0" prefWidth="440.0" />
+                  <HBox>
+                     <children>
+                        <Pane prefHeight="25.0" prefWidth="15.0" />
+                        <MenuButton fx:id="menuButton" mnemonicParsing="false" onAction="#menuSelection" text="Select an algorithm">
+                          <items>
+                            <MenuItem fx:id="algorithm1" mnemonicParsing="false" text="ToF" />
+                            <MenuItem fx:id="algorithm2" mnemonicParsing="false" text="ToA" />
+                              <MenuItem fx:id="algorithm3" mnemonicParsing="false" text="RSSI" />
+                          </items>
+                        </MenuButton>
+                        <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="38.0" />
+                        <Label fx:id="errorAlgoritm" prefHeight="17.0" prefWidth="238.0" textFill="RED">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Pane prefHeight="15.0" prefWidth="440.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="100.0" prefWidth="15.0" />
+                        <ListView fx:id="devicesList" prefHeight="150.0" prefWidth="410.0" />
+                        <Pane prefHeight="100.0" prefWidth="15.0" />
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="10.0" prefWidth="450.0" />
+                  <HBox fx:id="device" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="0.0" spacing="5.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+                     <children>
+                        <Pane prefHeight="25.0" prefWidth="10.0" />
+                        <TextField fx:id="deviceID" layoutX="40.0" layoutY="15.0" maxWidth="1.7976931348623157E308" onAction="#clearError" prefHeight="25.0" prefWidth="35.0" promptText="id">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></TextField>
+                        <Separator orientation="VERTICAL" />
+                        <TextField fx:id="deviceX" maxWidth="1.7976931348623157E308" onAction="#clearError" prefHeight="25.0" prefWidth="0.0" promptText="x" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="25.0" prefWidth="0.0" />
+                        <TextField fx:id="deviceY" layoutX="38.0" layoutY="198.0" maxWidth="1.7976931348623157E308" onAction="#clearError" prefHeight="25.0" prefWidth="0.0" promptText="y" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="25.0" prefWidth="28.0" />
+                        <Label fx:id="errorList" prefHeight="31.0" prefWidth="203.0" textFill="RED" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="44.0" prefWidth="450.0">
+                     <children>
+                        <Button fx:id="addDeviceButton" mnemonicParsing="false" onAction="#addDevice" prefHeight="37.0" prefWidth="100.0" text="➕ Add Device">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets left="15.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Pane prefHeight="44.0" prefWidth="20.0" />
+                        <Button fx:id="editDeviceButton" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#editDevice" text="🛠 Edit Device">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Pane prefHeight="44.0" prefWidth="20.0" />
+                        <Button fx:id="deleteDeviceButton" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#deleteDevice" style="--fxbackground-color: red; -fx-background-color: red;" text="❌ Delete Device" textFill="WHITE">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <VBox fx:id="gridAndCanvas" prefHeight="120.0" prefWidth="450.0">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <HBox prefHeight="10.0" prefWidth="450.0">
+                     <children>
+                        <Label text="Grid Layout" underline="true">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="17.0" prefWidth="30.0" />
+                        <Label fx:id="errorGrid" prefWidth="260.0" textFill="RED" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="450.0">
+                     <children>
+                        <HBox prefHeight="25.0" prefWidth="240.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="72.0" text="Area Size">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Separator orientation="VERTICAL" prefHeight="200.0">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Separator>
+                              <TextField fx:id="areaSizeX" prefHeight="25.0" prefWidth="40.0" promptText="x">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="areaSizeY" prefHeight="25.0" prefWidth="40.0" promptText="y">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="5.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <Pane prefHeight="30.0" prefWidth="50.0" />
+                        <Button fx:id="drawGrid" mnemonicParsing="false" onAction="#drawGridAction" text="🖌 Draw Grid">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="450.0">
+                     <children>
+                        <HBox prefHeight="28.0" prefWidth="240.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="72.0" text="Area Division">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Separator orientation="VERTICAL" prefHeight="200.0">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Separator>
+                              <TextField fx:id="areaDivisionX" prefHeight="25.0" prefWidth="40.0" promptText="x">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="areaDivisionY" prefHeight="25.0" prefWidth="40.0" promptText="y">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="30.0" prefWidth="50.0" />
+                        <Button fx:id="clearGrid" mnemonicParsing="false" onAction="#clearGridAction" prefHeight="25.0" prefWidth="85.0" text="♻ Clear Grid">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="50.0" prefWidth="450.0" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utcn.licenta.simulator.controllers.ComputeController">
+    <children>
+      <Pane prefHeight="20.0" prefWidth="450.0" />
+      <HBox prefHeight="25.0" prefWidth="450.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="20.0" />
+              <Button fx:id="computeButton" mnemonicParsing="false" onAction="#computeButtonAction" text="Compute" />
+         </children>
+      </HBox>
+      <Pane prefHeight="20.0" prefWidth="450.0" />
+      <HBox prefHeight="120.0" prefWidth="200.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="20.0" />
+              <TextArea fx:id="outputTextArea" editable="false" prefWidth="420.0" />
+            <Pane prefHeight="200.0" prefWidth="15.0" />
+         </children>
+      </HBox>
+    </children>
+</VBox>
